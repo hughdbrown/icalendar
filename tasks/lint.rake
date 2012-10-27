@@ -39,7 +39,7 @@ desc "Run all code analysis tools."
 task :lint => [
     "lint:pep8",
     # pylint does not work on files with __all__?
-    "lint:pylint",
+    #"lint:pylint",
     "lint:pycoverage",
     # pyflakes does not run in python 3+
     #"lint:pyflakes"
