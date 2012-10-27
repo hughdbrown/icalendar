@@ -14,7 +14,7 @@ namespace "setup" do
 
   desc "Install linting requirements"
   task :lint do
-    sh("pip install pep8 pylint coverage pyflakes")
+    sh("pip install pep8==1.3.3 pylint==0.26.0 coverage==3.5.3 pyflakes")
   end
 
   desc "Install testing requirements"
