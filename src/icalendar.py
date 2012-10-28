@@ -49,9 +49,6 @@ class ICalendar(object):
         self.tz = tz
         self.events = events or []
 
-    def add_event(self, event):
-        self.events.append(event)
-
     def __str__(self):
         return "\n".join([
             ICalendar.HEAD_FMT.format(time_zone=self.tz),

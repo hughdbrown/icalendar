@@ -4,6 +4,6 @@ from src.icalendar import (
 )
 
 __all__ = [
-    Event,
-    ICalendar
+    "Event",
+    "ICalendar"
 ]
