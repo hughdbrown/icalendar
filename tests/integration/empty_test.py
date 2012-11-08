@@ -20,6 +20,7 @@ class TestICalendar(unittest.TestCase):
 
     def test_create_events(self):
         root = os.path.dirname(__file__)
-        events = translate_cal.create_events(os.path.join(root, 'data', 'lori_cal.txt'))
+        datafile = os.path.join(root, 'data', 'lori_cal.txt')
+        events = translate_cal.create_events(datafile)
         assert_equals(len(events), 28)
         #ical = Calendar(events)
