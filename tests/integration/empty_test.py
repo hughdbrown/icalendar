@@ -1,4 +1,5 @@
 import unittest
+import os.path
 
 # from mock import Mock, patch
 from nose.tools import (
@@ -18,6 +19,7 @@ class TestICalendar(unittest.TestCase):
         pass
 
     def test_create_events(self):
-        events = translate_cal.create_events('data/lori_cal.txt')
+        root = os.path.dirname(__file__)
+        events = translate_cal.create_events(os.path.join(root, 'data', 'lori_cal.txt'))
         assert_equals(len(events), 28)
         #ical = Calendar(events)
