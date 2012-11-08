@@ -6,13 +6,13 @@ namespace "lint" do
 
   desc "Run the pylint analysis tool."
   task :pylint => ["setup:lint"] do
-    sh "pylint --rcfile=#{LINT_DIR}/pylintrc #{CLIENT_CODE_DIR}"
+    sh "pylint --rcfile=#{LINT_DIR}/pylintrc #{CLIENT_CODE_DIR} #{CLIENT_TEST_DIR}"
     notice("pyLint passed")
   end
 
   desc "Run the pep8 analysis tool."
   task :pep8 => ["setup:lint"] do
-    sh "pep8 --repeat --count #{CLIENT_CODE_DIR}"
+    sh "pep8 --repeat --count #{CLIENT_CODE_DIR} #{CLIENT_TEST_DIR}"
     notice("pep8 passed")
   end
 
@@ -30,7 +30,7 @@ namespace "lint" do
 
   desc "Run pyflakes"
   task :pyflakes => ["setup:lint"] do
-    sh("pyflakes #{CLIENT_CODE_DIR}")
+    sh("pyflakes #{CLIENT_CODE_DIR} #{CLIENT_TEST_DIR}")
     notice("pyflakes passed")
   end
 end
@@ -41,5 +41,5 @@ task :lint => [
     "lint:pylint",
     "lint:pycoverage",
     # pyflakes does not run in python 3+
-    #"lint:pyflakes"
+    "lint:pyflakes"
 ]
