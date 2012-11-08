@@ -31,7 +31,9 @@ class Event(object):
         )
 
     def hash_val(self):
-        return sha1(self.start_time + self.end_time + self.summary).hexdigest()
+        args = [self.start_time, self.end_time, self.summary]
+        key = "".join(arg.encode('ascii', 'ignore') for arg in args)
+        return sha1(key).hexdigest()
 
 
 class Calendar(object):

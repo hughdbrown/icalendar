@@ -86,7 +86,7 @@ def create_events(arg, prefix=None):
     today = datetime.today()
     year, month = today.year, today.month
     with open(arg) as f:
-        lines = filter(None, (line.rstrip() for line in f))
+        lines = filter(None, [line.rstrip() for line in f])
     for line in lines:
         try:
             month = months.index(line[:3].title()) + 1
