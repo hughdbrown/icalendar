@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from __future__ import print_function
 from hashlib import sha1
 from datetime import datetime
@@ -12,14 +11,14 @@ class Event(object):
         SUMMARY:{summary}
         END:VEVENT""".replace(' ', '')
 
-    def __init__(self, start, end, summary):
+    def __init__(self, start_time, end_time, summary):
         def format_time(t):
             if isinstance(t, datetime):
-                return t.strftime("%Y%m%dT%M%H%SZ")
+                return t.strftime("%Y%m%dT%H%M%SZ")
             return t
 
-        self.start_time = format_time(start)
-        self.end_time = format_time(end)
+        self.start_time = format_time(start_time)
+        self.end_time = format_time(end_time)
         self.summary = summary
 
     def str_val(self, tz):
@@ -35,7 +34,7 @@ class Event(object):
         return sha1(self.start_time + self.end_time + self.summary).hexdigest()
 
 
-class ICalendar(object):
+class Calendar(object):
     HEAD_FMT = """BEGIN:VCALENDAR
         VERSION:2.0
         X-WR-TIMEZONE:{time_zone}
@@ -51,25 +50,7 @@ class ICalendar(object):
 
     def __str__(self):
         return "\n".join([
-            ICalendar.HEAD_FMT.format(time_zone=self.tz),
+            Calendar.HEAD_FMT.format(time_zone=self.tz),
             "\n".join(event.str_val(self.tz) for event in self.events),
-            ICalendar.TAIL_FMT
+            Calendar.TAIL_FMT
         ])
-
-
-if __name__ == '__main__':
-    event = Event(
-        '20121011T000000Z',
-        '20121016T000000Z',
-        'Jim and Missy visit NYC'
-    )
-    cal = ICalendar(tz="America/New_York", events=[event])
-    print(str(cal))
-
-    event = Event(
-        datetime(2012, 10, 11, 0, 0, 0),
-        datetime(2012, 10, 16, 0, 0, 0),
-        'Jim and Missy visit NYC'
-    )
-    cal = ICalendar(tz="America/New_York", events=[event])
-    print(str(cal))

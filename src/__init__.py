@@ -1,9 +1,9 @@
 from src.icalendar import (
     Event,
-    ICalendar
+    Calendar
 )
 
 __all__ = [
     "Event",
-    "ICalendar"
+    "Calendar"
 ]
