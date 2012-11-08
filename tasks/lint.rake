@@ -41,5 +41,5 @@ task :lint => [
     "lint:pylint",
     "lint:pycoverage",
     # pyflakes does not run in python 3+
-    "lint:pyflakes"
+    #"lint:pyflakes"
 ]
