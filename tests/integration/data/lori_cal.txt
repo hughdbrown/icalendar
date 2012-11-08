@@ -1,0 +1,31 @@
+NOV
+9 7a-3p aed
+10 7a-7p ped
+12 5p-1a aed
+14 3p-11p aed
+15 7p-7a ped
+22 7p-7a ped
+25 7p-7a ped
+27 4p-10p aed
+30 11a-7p geri
+DEC
+4 7a-3p aed
+5 11a-5p intake
+6 11p-7a aed
+8 12p-8p aed
+10 7a-3p aed
+11 12p-12a ped
+13 7a-7p ped
+14 7p-7a ped
+17 5p-1a aed
+19 10p-4a aed
+20 7p-7a ped
+21-31 off
+JAN 
+1 4p-10p resus
+2 7p-7a ped
+6 sick call
+8 12p-12a ped
+11 11a-5p intake
+12 7a-7p ped
+13 12p-8p aed
