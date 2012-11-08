@@ -16,6 +16,7 @@ setup(
         'nose',
     ],
     tests_require=[
+        'simplejson',
     ],
     setup_requires=[],
     packages=find_packages(exclude=['test']),
