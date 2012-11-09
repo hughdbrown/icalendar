@@ -1,6 +1,5 @@
 from __future__ import print_function
 from hashlib import sha1
-from datetime import datetime
 
 
 class Event(object):
@@ -13,9 +12,10 @@ class Event(object):
 
     def __init__(self, start_time, end_time, summary):
         def format_time(t):
-            if isinstance(t, datetime):
+            try:
                 return t.strftime("%Y%m%dT%H%M%SZ")
-            return t
+            except AttributeError:
+                return t
 
         self.start_time = format_time(start_time)
         self.end_time = format_time(end_time)
@@ -31,9 +31,8 @@ class Event(object):
         )
 
     def hash_val(self):
-        args = [self.start_time, self.end_time, self.summary]
-        key = "".join(arg.encode('ascii', 'ignore') for arg in args)
-        return sha1(key).hexdigest()
+        key = "".join((self.start_time, self.end_time, self.summary))
+        return sha1(key.encode('utf8')).hexdigest()
 
 
 class Calendar(object):
