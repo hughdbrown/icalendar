@@ -90,8 +90,8 @@ def create_events(arg, prefix=None):
     for line in lines:
         try:
             month = months.index(line[:3].title()) + 1
-            if month == 1:
-                year += 1
+            #if month == 1:
+            #    year += 1
         except ValueError:
             m1 = TIME_RANGE.match(line)
             m2 = DATE_RANGE.match(line)
