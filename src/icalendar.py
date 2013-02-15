@@ -9,6 +9,16 @@ class Event(object):
         DTEND;TZID={time_zone}:{end_time}
         SUMMARY:{summary}
         END:VEVENT""".replace(' ', '')
+    TIME_ZONES = [
+        "America/New_York",
+        "America/Chicago",
+        "America/Denver",
+        "America/Phoenix",
+        "America/Los_Angeles",
+        "America/Anchorage",
+        "America/Adak",
+        "Pacific/Honolulu",
+    ]
 
     def __init__(self, start_time, end_time, summary):
         def format_time(t):
